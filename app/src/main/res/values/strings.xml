@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">AndroidMapApp</string>
+    <string name="app_name">Googleマップ検索</string>
+    <string name="ed_key_input">キーワードを入力</string>
+    <string name="bt_map">MAP表示</string>
+
+    <string name="menu_list_option_location">現在地</string>
+    <string name="menu_list_option_exit">終了</string>
+
+    <string name="tv_history">履歴</string>
+    <string name="tv_latitude">緯度</string>
+    <string name="tv_longitude">経度</string>
+
+    <string name="dialog_delete_title">履歴の削除</string>
+    <string name="dialog_btn_erase">削除</string>
+    <string name="dialog_btn_cansel">キャンセル</string>
+    <string name="dialog_msg_erase">削除</string>
+    <string name="dialog_msg_cancel">キャンセル</string>
+    <string name="dialog_delete_msg">すべての履歴を削除しますか？</string>
 </resources>
