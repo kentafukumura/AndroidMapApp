@@ -1,9 +1,12 @@
 package com.websarve.wings.android.androidmapapp
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 
@@ -11,6 +14,14 @@ import android.widget.TextView
  * GPSアクティビティ.
  */
 class GPSActivity : AppCompatActivity() {
+
+    /**
+     * 　_latitude  緯度
+     * 　_longitude 経度
+     */
+    private var _latitude = 0.0
+    private var _longitude = 0.0
+
     /**
      * onCreate オーバーライド
      */
@@ -46,5 +57,17 @@ class GPSActivity : AppCompatActivity() {
         }
         Log.i("GPSActivity onOptionsItemSelected", "end!!")
         return super.onOptionsItemSelected(item)
+    }
+
+    fun onGPSMapButtonClick(view: View) {
+        Log.i("GPSActivity onGPSMapButtonClick", "start!!")
+        val uriStr = "geo:${_latitude}, ${_longitude}"
+        Log.i("GPSActivity _latitude", "${_latitude}")
+        Log.i("GPSActivity _longitude", "${_longitude}")
+        val uri = Uri.parse(uriStr)
+        val intent = Intent(Intent.ACTION_VIEW, uri)
+        Log.i("GPSActivity onGPSMapButtonClick", "startActivity!!")
+        startActivity(intent)
+        Log.i("GPSActivity onGPSMapButtonClick", "end!!")
     }
 }

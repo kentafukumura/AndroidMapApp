@@ -1,14 +1,19 @@
 package com.websarve.wings.android.androidmapapp
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract.Intents.Insert.ACTION
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.EditText
 import android.widget.ListView
 import android.widget.SimpleAdapter
 import android.widget.Toast
+import java.net.URLEncoder
 
 /**
  * メインアクティビティ.
@@ -87,5 +92,20 @@ class MainActivity : AppCompatActivity() {
         val adapter = SimpleAdapter(applicationContext, menuList, android.R.layout.simple_list_item_2, from, to)
         lvHistory.adapter = adapter
         Log.i("MainActivity showHistory", "end!!")
+    }
+
+    /**
+     * onMapButtonClick Googleマップの起動
+     */
+    fun onKeywordMapButtonClick(view: View){
+        Log.i("MainActivity onMapButtonClick", "start!!")
+        val etKey = findViewById<EditText>(R.id.edKeyInput).text.toString()
+        var keyUrl = URLEncoder.encode(etKey, "UTF-8")
+        val keyUri = "geo:0,0?q=${keyUrl}"
+        val uri = Uri.parse(keyUri)
+        val intent = Intent(Intent.ACTION_VIEW, uri)
+        Log.i("MainActivity onMapButtonClick", "startActivity!!")
+        startActivity(intent)
+        Log.i("MainActivity onMapButtonClick", "end!!")
     }
 }
