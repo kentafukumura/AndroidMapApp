@@ -10,8 +10,12 @@ import androidx.fragment.app.DialogFragment
 
 /**
  * DeleteHistoryDialog.
+ *
+ * 使用しない
+ *
  */
 class DeleteHistoryDialog : DialogFragment() {
+
     /**
      * onCreateDialog オーバーライド
      */
@@ -27,6 +31,9 @@ class DeleteHistoryDialog : DialogFragment() {
         return dialog
     }
 
+    /**
+     * DialogButtonClickListener オーバーライド
+     */
     private inner class DialogButtonClickListener : DialogInterface.OnClickListener{
         /**
          * onClick オーバーライド
@@ -39,7 +46,8 @@ class DeleteHistoryDialog : DialogFragment() {
                 DialogInterface.BUTTON_POSITIVE ->{
                     Log.i("DeleteHistoryDialog onClick", "selected BUTTON_POSITIVE")
                     msg = getString(R.string.dialog_msg_erase)
-                    // ここに 履歴削除処理 を追加
+
+                    // mainActivity の clearMap を使用したいが、実装できなかった
                 }
                 DialogInterface.BUTTON_NEGATIVE ->{
                     Log.i("DeleteHistoryDialog onClick", "selected BUTTON_NEGATIVE")

@@ -93,6 +93,9 @@ class GPSActivity : AppCompatActivity() {
         val intent = Intent(Intent.ACTION_VIEW, uri)
         Log.i("GPSActivity onGPSMapButtonClick", "startActivity!!")
         startActivity(intent)
+
+        // 保存処理追加
+
         Log.i("GPSActivity onGPSMapButtonClick", "end!!")
     }
 
